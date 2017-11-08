@@ -12,6 +12,8 @@ contract WishingWell {
 
         // Make sure we check if there's enough cash ... 
         // Otherwise we might 'remember' an amount that is wrong
+        // this require() function stops any further processing and reverts
+        // any trasactions if its contents resolve to false.
         require( msg.sender.balance >= msg.value);
 
         // Save amount deposited to our balances hashmap
