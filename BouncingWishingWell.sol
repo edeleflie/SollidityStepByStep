@@ -41,7 +41,8 @@ contract BouncingWishingWell {
             depositerCount = 0;
         }
 
-        // save the depositer to memory 
+        // Save the current depositer's address so that we can effectuate
+        // future payments
         depositers[ depositerCount ] = msg.sender;
 
         // remember deposit for future reference (this is not currently used)
@@ -77,11 +78,11 @@ contract BouncingWishingWell {
         } else if ( depositerCount == 4 ){
 
           // each user gets 1/5 of the money
-            msg.sender.transfer(_amount/4);
-            depositers[ 1 ].transfer(_amount/4);
-            depositers[ 2 ].transfer(_amount/4);
-            depositers[ 3 ].transfer(_amount/4);
-            depositers[ 4 ].transfer(_amount/4);
+            msg.sender.transfer(_amount/5);
+            depositers[ 1 ].transfer(_amount/5);
+            depositers[ 2 ].transfer(_amount/5);
+            depositers[ 3 ].transfer(_amount/5);
+            depositers[ 4 ].transfer(_amount/5);
 
             LogRoundOver(15); // logic of total won to be worked out
 
