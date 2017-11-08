@@ -4,6 +4,11 @@ pragma solidity ^0.4.0;
  * Here, we calculate a commission and send it to the contract owner.
  * we also make sure that the local balance (which is not Ether, it is just a log)
  * records the right amount (deposit less commission)
+ *
+ * Note: To mover Ether from the contract account to a user account
+ * the function 'transfer' is recommended over the older 'send' because of
+ * issues with propagating errors in the older 'send' implementation.
+ *
  */
 
 contract WishingWell {
