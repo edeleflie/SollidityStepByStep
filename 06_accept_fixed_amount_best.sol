@@ -17,7 +17,7 @@ pragma solidity ^0.4.0;
 contract WishingWell {
     mapping (address => uint) public balances;
 
-    function deposit() only_if_right_amount() payable public returns (uint256){
+    function deposit() if_right_amount() payable public returns (uint256){
 
         require( msg.sender.balance >= msg.value);
         balances[msg.sender] += msg.value;
@@ -28,7 +28,7 @@ contract WishingWell {
     // This is a function modifier. It allows us to separate out
     // conditional code, so that the transaction function above is totally
     // clear of any possible forks.
-    modifier only_if_right_amount() {
+    modifier if_right_amount() {
         uint right_amount = 1000000000000000;
         require( msg.value == right_amount);
         _;
