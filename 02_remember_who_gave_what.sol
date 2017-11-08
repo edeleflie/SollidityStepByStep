@@ -9,6 +9,11 @@ pragma solidity ^0.4.0;
  * line should be split up into different accounts would be determined 
  * by some values (just numbers) stored somewhere.
  *
+ * This is also what 'tokens' are ... they are not a new data type in Ethereum,
+ * they are just a bunch of numbers held inside a contract. It would thus be 
+ * easy to accidently create a bad 'token' contract, where those numbers are 
+ * accidently handled in ways not comensurate with currency.
+ *
  * Note the use of the require() command ... very easy to stop the transaction
  * at any time and for any reason.
  *

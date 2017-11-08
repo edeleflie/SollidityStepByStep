@@ -1,9 +1,9 @@
 pragma solidity ^0.4.0;
 
 /* 
- * Here, we check the amount that has been sent, to make sure it is the right amount.
+ * Syntactically, instead of using the if command, we can use the command
+ * 'require' to satisfy the condition.
  *
- * Note the use of the 'if' command.
  *
  */
 
@@ -16,10 +16,7 @@ contract WishingWell {
         uint _amount == 1000000000000000;
 
         // Check that the amount sent is the same as the fixed amount
-        // if it isnt, throw the transaction out the window
-        if (msg.value != _amount) {
-            throw;
-        }
+        require( msg.value == _amount);
 
         // check that there is enough Ether in the sender's account
         require( msg.sender.balance >= _amount);
