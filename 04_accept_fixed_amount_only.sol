@@ -13,12 +13,12 @@ contract WishingWell {
     function deposit() payable public returns (uint256){
 
         // the fixed amount we would like to ensure: 1 Finney
-        uint _amount == 1000000000000000;
+        uint _amount = 1000000000000000;
 
         // Check that the amount sent is the same as the fixed amount
         // if it isnt, throw the transaction out the window
         if (msg.value != _amount) {
-            throw;
+            throw;  // Note: this command is now deprecated, see next example for how to better do this
         }
 
         // check that there is enough Ether in the sender's account
