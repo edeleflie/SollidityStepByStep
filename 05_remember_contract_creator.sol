@@ -1,5 +1,10 @@
 pragma solidity ^0.4.0;
 
+/* 
+ * It is often useful to remember who the contract deployer is.
+ * One use is for processing commissions, for example.
+ */
+
 contract WishingWell {
     mapping (address => uint) public balances;
 

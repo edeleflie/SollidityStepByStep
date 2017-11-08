@@ -2,7 +2,7 @@ pragma solidity ^0.4.0;
 
 /* 
  * You don't have to save who sent what to the contract, 
- * but in mnay instances, it will be a good idea
+ * but in many instances, it is a good idea.
  */
 
 contract WishingWell {

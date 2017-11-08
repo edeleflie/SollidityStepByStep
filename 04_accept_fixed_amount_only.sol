@@ -1,5 +1,9 @@
 pragma solidity ^0.4.0;
 
+/* 
+ * Here, we check the amount that has been sent, to make sure it is the right amount
+ */
+
 contract WishingWell {
     mapping (address => uint) public balances;
 
@@ -10,7 +14,7 @@ contract WishingWell {
 
         // Check that the amount sent is the right amount
         require( msg.value == _amount);
-        
+
         // check that it is enough
         require( msg.sender.balance >= _amount);
 

@@ -1,5 +1,9 @@
 pragma solidity ^0.4.0;
 
+/* 
+ * Here, we calculate a commission and send it back to the sender.
+ */
+
 contract WishingWell {
     mapping (address => uint) public balances;
 
