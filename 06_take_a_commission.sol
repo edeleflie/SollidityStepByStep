@@ -7,13 +7,12 @@ pragma solidity ^0.4.0;
 contract WishingWell {
     mapping (address => uint) public balances;
 
-    // this is the variable that will remember the owner
     address owner;
 
     // the commision rate .. is a divisor
-    uint commission_divisor = 100; // this is equivalent to 1%
+    // there are no floats in Ethereum (yet, apparently)
+    uint commission_divisor = 100; // effectively 1%
 
-    // thic constructor makes the owner be the account who deployed the contract
     function WishingWell() public {
     	owner = msg.sender;
     }

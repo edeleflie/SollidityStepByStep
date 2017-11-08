@@ -11,7 +11,8 @@ contract WishingWell {
     // this is the variable that will remember the owner
     address owner;
 
-    // thic constructor makes the owner be the account who deployed the contract
+    // this constructor ensures that the account who deployed the contract
+    // is saved as the owner
     function WishingWell() public {
     	owner = msg.sender;
     }
@@ -20,7 +21,6 @@ contract WishingWell {
 
         require( msg.sender.balance >= msg.value);
 
-        // remember it for future reference
         balances[msg.sender] += msg.value;
 
         return this.balance;

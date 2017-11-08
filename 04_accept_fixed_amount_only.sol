@@ -12,10 +12,10 @@ contract WishingWell {
         // the fixed amount we would like to ensure: 1 Finney
         uint _amount == 1000000000000000;
 
-        // Check that the amount sent is the right amount
+        // Check that the amount sent is the same as the fixed amount
         require( msg.value == _amount);
 
-        // check that it is enough
+        // check that there is enough Ether in the sender's account
         require( msg.sender.balance >= _amount);
 
         // remember it for future reference
