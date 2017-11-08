@@ -1,7 +1,7 @@
 pragma solidity ^0.4.0;
 
 /* 
- * After each deposit, we tell the sender how much money is in this contract.
+ * After each deposit, we tell the sender how much Ether is in this wishing well.
  */
 
 contract WishingWell {
@@ -14,6 +14,11 @@ contract WishingWell {
         balances[msg.sender] += msg.value;
 
         return this.balance;
+
+        // If we wanted to report back the amount of Ether that 
+        // the current user has dropped into the well, we would do this:
+        // return balances[msg.sender];
+
     }
 }
 

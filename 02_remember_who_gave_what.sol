@@ -17,6 +17,10 @@ contract WishingWell {
         require( msg.sender.balance >= msg.value);
 
         // Save amount deposited to our balances hashmap
+        // This is NOT to be confused with Ether ... this 
+        // balances hash (which you often see in sample contracts)
+        // is just a way to remember, internally to the contract, who
+        // has deposited how much
         balances[msg.sender] += msg.value;
 
         // if the sender did not have enough money in their account
