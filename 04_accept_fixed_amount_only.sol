@@ -1,7 +1,9 @@
 pragma solidity ^0.4.0;
 
 /* 
- * Here, we check the amount that has been sent, to make sure it is the right amount
+ * Here, we check the amount that has been sent, to make sure it is the right amount.
+ *
+ *
  */
 
 contract WishingWell {

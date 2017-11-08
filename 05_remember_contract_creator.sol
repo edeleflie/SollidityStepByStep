@@ -8,10 +8,11 @@ pragma solidity ^0.4.0;
 contract WishingWell {
     mapping (address => uint) public balances;
 
-    // this is the variable that will remember the owner
-    address owner;
+    // This is the variable that will remember the owner
+    // Here it is private, in other contracts it might be made public
+    address private owner;
 
-    // this constructor ensures that the account who deployed the contract
+    // This constructor ensures that the account who deployed the contract
     // is saved as the owner
     function WishingWell() public {
     	owner = msg.sender;

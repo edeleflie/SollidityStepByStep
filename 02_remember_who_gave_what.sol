@@ -2,7 +2,16 @@ pragma solidity ^0.4.0;
 
 /* 
  * You don't have to save who sent what to the contract, 
- * but in many instances, it is a good idea.
+ * but in many instances, it is useful.
+ *
+ * For example, if you want your contract to behave like a bank,
+ * your bank will only have one bottom line ... and how that bottom
+ * line should be split up into different accounts would be determined 
+ * by some values (just numbers) stored somewhere.
+ *
+ * Note the use of the require() command ... very easy to stop the transaction
+ * at any time and for any reason.
+ *
  */
 
 contract WishingWell {

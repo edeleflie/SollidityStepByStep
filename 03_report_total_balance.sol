@@ -2,6 +2,9 @@ pragma solidity ^0.4.0;
 
 /* 
  * After each deposit, we tell the sender how much Ether is in this wishing well.
+ *
+ * Functions can return values.
+ *
  */
 
 contract WishingWell {
