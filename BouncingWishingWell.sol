@@ -28,8 +28,9 @@ contract BouncingWishingWell {
     function deposit() payable public returns (uint256){
 
         // first, check that the amount deposited is right
-        // the fixed amount we would like to ensure: 3 Finney
-        uint _amount = 3000000000000000;
+        // the fixed amount we would like to ensure: 6 Finney
+        // Note that 60 is divisible by 2, 3, 4, and 5, thus making splitting the amount not an issue
+        uint _amount = 6000000000000000;
         require( msg.value == _amount);
 
         // check that there is enough Ether in the sender's account
