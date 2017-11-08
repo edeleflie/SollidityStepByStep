@@ -10,18 +10,20 @@ contract WishingWell {
 
     function deposit() payable public {
 
-        // Make sure we check is there's enough cash ... 
+        // Make sure we check if there's enough cash ... 
         // Otherwise we might 'remember' an amount that is wrong
         require( msg.sender.balance >= msg.value);
 
-        // save amount deposited to our balances hashmap
+        // Save amount deposited to our balances hashmap
         balances[msg.sender] += msg.value;
 
         // if the sender did not have enough money in their account
-        // and we didn't include the 'require' command above
-        // Here (at the end of the deposit() function) is where
-        // the code who stop.
+        // and we didn't include the 'require' command above then
+        // here (at the end of the deposit() function) is where
+        // the code would stop.
         // i.e. everything before this would be executed.
+        // and this would mean that in our 'balances' hashmap, we would
+        // have asved a transfer amount that didn't occur.
     }
 }
 
