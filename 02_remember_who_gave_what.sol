@@ -12,7 +12,9 @@ pragma solidity ^0.4.0;
  * This is also what 'tokens' are ... they are not a new data type in Ethereum,
  * they are just a bunch of numbers held inside a contract. It would thus be 
  * easy to accidently create a bad 'token' contract, where those numbers are 
- * accidently handled in ways not comensurate with currency.
+ * accidently handled in ways not comensurate with securely traded currency. 
+ * The DAO incident (https://en.wikipedia.org/wiki/The_DAO_(organization)), which
+ * resulted in the first Ethereum fork, concerned an exploit of a contract dealing with tokens.
  *
  * Note the use of the require() command ... very easy to stop the transaction
  * at any time and for any reason.
