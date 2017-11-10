@@ -16,17 +16,15 @@ contract BouncingWishingWell {
 
     address owner;              // Owner of the contract 
     address[5] depositors;      // The list of users using this system
-    uint256 depositorCount;       // How many people have deposited
-    uint256 amountDeposited;
+    uint256 depositorCount;     // How many people have deposited
+    uint256 amountDeposited;    // a running count of how much Ether has been deposited
 
-    // first, check that the amount deposited is right
-    // the fixed amount we would like to ensure: 60 Finney
+    // First, check that the amount deposited is right.
+    // The fixed amount we would like to ensure is 60 Finney
     // Note that 60 is divisible by 2, 3, 4, and 5,
     // thus making any division of the amount of Ether always
-    // end up as a whole number
+    // result in a whole number (Ethereum has no concept of floats)
     uint _amount = 60000000000000000;
-
-    uint commission_divisor = 100;
 
     function BouncingWishingWell() public {
       owner = msg.sender;   // owner of contract is whoever deployed it
@@ -40,10 +38,10 @@ contract BouncingWishingWell {
 
     function deposit() if_right_amount() payable public returns (uint256){
 
-        // increment how much money has been deposited
+        // Increment how much money has been deposited
         amountDeposited += msg.value;
 
-        // do we need to set counter back to 0?
+        // Do we need to set counter back to 0?
         if (depositorCount > 4 ) {
             depositorCount = 0;
         }
@@ -98,6 +96,7 @@ contract BouncingWishingWell {
         return amountDeposited;
     }
 
+    // This modifier allows us to keep at least one conditional out of the transaction logic
     modifier if_right_amount() {
         require( msg.value == _amount);
         _;
