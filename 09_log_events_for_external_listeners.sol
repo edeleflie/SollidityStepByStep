@@ -24,7 +24,7 @@ contract WishingWell {
     function deposit() if_right_amount() payable public returns (uint256){
 
         // calculate the commission, and send it to owner
-        commission = msg.value / commission_divisor;
+        uint commission = msg.value / commission_divisor;
         owner.transfer(commission);
 
         // Trigger the event log
