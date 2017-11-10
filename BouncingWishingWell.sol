@@ -17,6 +17,7 @@ contract BouncingWishingWell {
     address owner;              // Owner of the contract 
     address[5] depositors;      // The list of users using this system
     uint256 depositorCount;       // How many people have deposited
+    uint256 amountDeposited;
 
     // first, check that the amount deposited is right
     // the fixed amount we would like to ensure: 60 Finney
@@ -29,7 +30,8 @@ contract BouncingWishingWell {
 
     function BouncingWishingWell() public {
       owner = msg.sender;   // owner of contract is whoever deployed it
-      depositorCount = 0;     
+      depositorCount = 0;
+      amountDeposited = 0;     
     }
 
     // Publicise that we are up to a new round!
@@ -37,6 +39,9 @@ contract BouncingWishingWell {
     event LogRoundOver(uint amount);
 
     function deposit() if_right_amount() payable public returns (uint256){
+
+        // increment how much money has been deposited
+        amountDeposited += msg.value;
 
         // do we need to set counter back to 0?
         if (depositorCount > 4 ) {
@@ -90,7 +95,7 @@ contract BouncingWishingWell {
         // Increment the callerCount
         depositorCount ++;
 
-        return this.balance;
+        return amountDeposited;
     }
 
     modifier if_right_amount() {
