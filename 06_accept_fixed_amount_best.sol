@@ -15,13 +15,8 @@ pragma solidity ^0.4.0;
  */
 
 contract WishingWell {
-    mapping (address => uint) public balances;
 
     function deposit() if_right_amount() payable public returns (uint256){
-
-        require( msg.sender.balance >= msg.value);
-        balances[msg.sender] += msg.value;
-
         return this.balance;
     }
 

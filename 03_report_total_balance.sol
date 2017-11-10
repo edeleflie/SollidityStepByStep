@@ -1,6 +1,8 @@
 pragma solidity ^0.4.0;
 
 /* 
+ * We are not making a token, so we can remove the unecessary 'balances' variable
+ * 
  * After each deposit, we tell the sender how much Ether is in this wishing well.
  *
  * Functions can return values.
@@ -8,19 +10,11 @@ pragma solidity ^0.4.0;
  */
 
 contract WishingWell {
-    mapping (address => uint) public balances;
+
 
     function deposit() payable public returns (uint256){
 
-    	require( msg.sender.balance >= msg.value);
-
-        balances[msg.sender] += msg.value;
-
         return this.balance;
-
-        // If we wanted to report back the amount of Ether that 
-        // the current user has dropped into the well, we would do this:
-        // return balances[msg.sender];
 
     }
 }

@@ -12,9 +12,8 @@ pragma solidity ^0.4.0;
  */
 
 contract WishingWell {
-    mapping (address => uint) public balances;
 
-    address owner;
+    address private owner;
 
     // the commision rate .. is a divisor
     // there are no floats in Ethereum (yet, apparently)
@@ -24,19 +23,18 @@ contract WishingWell {
     	owner = msg.sender;
     }
 
-    function deposit() payable public returns (uint256){
-
-    	uint commission;
-
-        require( msg.sender.balance >= msg.value);
+    function deposit() if_right_amount() payable public returns (uint256){
 
         // calculate the commission, and send it to owner
         commission = msg.value / commission_divisor;
         owner.transfer(commission);
 
-        // make sure we only record the real deposited amount
-        balances[msg.sender] += msg.value - commission;
-
         return this.balance;
+    }
+
+    modifier if_right_amount() {
+        uint right_amount = 1000000000000000;
+        require( msg.value == right_amount);
+        _;
     }
 }

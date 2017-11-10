@@ -6,7 +6,7 @@ pragma solidity ^0.4.0;
  */
 
 contract WishingWell {
-    mapping (address => uint) public balances;
+
 
     // This is the variable that will remember the owner
     // Here it is private, in other contracts it might be made public
@@ -18,12 +18,18 @@ contract WishingWell {
     	owner = msg.sender;
     }
 
-    function deposit() payable public returns (uint256){
 
-        require( msg.sender.balance >= msg.value);
-
-        balances[msg.sender] += msg.value;
-
+    function deposit() if_right_amount() payable public returns (uint256){
         return this.balance;
     }
+
+    // This is a function modifier. It allows us to separate out
+    // conditional code, so that the transaction function above is totally
+    // clear of any possible forks.
+    modifier if_right_amount() {
+        uint right_amount = 1000000000000000;
+        require( msg.value == right_amount);
+        _;
+    }
 }
+

@@ -10,30 +10,32 @@ pragma solidity ^0.4.0;
  */
 
 contract WishingWell {
-    mapping (address => uint) public balances;
-    address owner;
-    uint commission_divisor = 100; 
 
-    function WishingWell() public {
-    	owner = msg.sender;
-    }
+    address private owner;
+    uint commission_divisor = 100; 
 
     // publicise that an amount has been deposited to external listeners
     event LogDepositMade(address accountAddress, uint amount);
 
-    function deposit() payable public returns (uint256){
+    function WishingWell() public {
+        owner = msg.sender;
+    }
 
-    	uint commission;
+    function deposit() if_right_amount() payable public returns (uint256){
 
-        require( msg.sender.balance >= msg.value);
+        // calculate the commission, and send it to owner
         commission = msg.value / commission_divisor;
         owner.transfer(commission);
-
-        balances[msg.sender] += msg.value - commission;
 
         // Trigger the event log
         LogDepositMade(msg.sender, msg.value - commission);
 
         return this.balance;
+    }
+
+    modifier if_right_amount() {
+        uint right_amount = 1000000000000000;
+        require( msg.value == right_amount);
+        _;
     }
 }

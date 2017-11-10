@@ -8,7 +8,6 @@ pragma solidity ^0.4.0;
  */
 
 contract WishingWell {
-    mapping (address => uint) public balances;
 
     function deposit() payable public returns (uint256){
 
@@ -20,12 +19,6 @@ contract WishingWell {
         if (msg.value != _amount) {
             throw;  // Note: this command is now deprecated, see next example for how to better do this
         }
-
-        // check that there is enough Ether in the sender's account
-        require( msg.sender.balance >= _amount);
-
-        // remember it for future reference
-        balances[msg.sender] += _amount;
 
         return this.balance;
     }
