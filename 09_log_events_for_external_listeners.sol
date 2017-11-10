@@ -34,7 +34,7 @@ contract WishingWell {
     }
 
     modifier if_right_amount() {
-        uint right_amount = 1000000000000000;
+        uint right_amount = 100000000000000000; // 100 Finney
         require( msg.value == right_amount);
         _;
     }
