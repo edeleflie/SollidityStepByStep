@@ -27,13 +27,10 @@ contract BouncingWishingWell {
     function deposit() payable public returns (uint256){
 
         // first, check that the amount deposited is right
-        // the fixed amount we would like to ensure: 6 Finney
+        // the fixed amount we would like to ensure: 60 Finney
         // Note that 60 is divisible by 2, 3, 4, and 5, thus making splitting the amount not an issue
-        uint _amount = 6000000000000000;
+        uint _amount = 60000000000000000;
         require( msg.value == _amount);
-
-        // check that there is enough Ether in the sender's account
-        require( msg.sender.balance >= _amount);
 
         // do we need to set counter back to 0?
         if (depositerCount > 4 ) {
@@ -48,25 +45,25 @@ contract BouncingWishingWell {
         if ( depositerCount == 0 ){
 
             // user gets everything back
-            msg.sender.transfer(_amount);
+            depositers[ 0 ].transfer(_amount);
 
         } else if ( depositerCount == 1 ){
 
             // each user gets 1/2 of the money
-            msg.sender.transfer(_amount/2);
+            depositers[ 0 ].transfer(_amount/2);
             depositers[ 1 ].transfer(_amount/2);
 
         } else if ( depositerCount == 2 ){
 
             // each user gets 1/3 of the money
-            msg.sender.transfer(_amount/3);
+            depositers[ 0 ].transfer(_amount/3);
             depositers[ 1 ].transfer(_amount/3);
             depositers[ 2 ].transfer(_amount/3);
 
         } else if ( depositerCount == 3 ){
 
             // each user gets 1/4 of the money
-            msg.sender.transfer(_amount/4);
+            depositers[ 0 ].transfer(_amount/4);
             depositers[ 1 ].transfer(_amount/4);
             depositers[ 2 ].transfer(_amount/4);
             depositers[ 3 ].transfer(_amount/4);
@@ -74,7 +71,7 @@ contract BouncingWishingWell {
         } else if ( depositerCount == 4 ){
 
           // each user gets 1/5 of the money
-            msg.sender.transfer(_amount/5);
+            depositers[ 0 ].transfer(_amount/5);
             depositers[ 1 ].transfer(_amount/5);
             depositers[ 2 ].transfer(_amount/5);
             depositers[ 3 ].transfer(_amount/5);
