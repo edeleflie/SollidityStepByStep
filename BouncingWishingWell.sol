@@ -1,14 +1,13 @@
 pragma solidity ^0.4.0;
 
 /* 
- * A game or chance, and timing.
- * Each participator must deposit 3 Finney.
+ * A game of chance, and timing.
+ * Each participator must deposit 6 Finney.
  * Depending on where they fall in the order of depositers,
  * they are rewarded with a share in other depositer's deposits.
  */
 
 contract BouncingWishingWell {
-    mapping (address => uint) public balances;
 
     address owner;              // Owner of the contract 
     address[5] depositers;      // The list of users using this system
@@ -44,9 +43,6 @@ contract BouncingWishingWell {
         // Save the current depositer's address so that we can effectuate
         // future payments
         depositers[ depositerCount ] = msg.sender;
-
-        // remember deposit for future reference (this is not currently used)
-        balances[msg.sender] += _amount;
 
         // The rules!
         if ( depositerCount == 0 ){
