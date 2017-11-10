@@ -34,7 +34,7 @@ contract WishingWell {
         commission = msg.value / commission_divisor;
         owner.transfer(commission);
 
-        // make sure we only remember real deposited amount
+        // make sure we only record the real deposited amount
         balances[msg.sender] += msg.value - commission;
 
         return this.balance;
