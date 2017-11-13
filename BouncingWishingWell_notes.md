@@ -33,3 +33,6 @@ well.deposit({from: eth.accounts[0], value: web3.toWei(0.06, "ether"), gas:'3000
 ```
 
 You should see your balance change within 30-60 seconds! GOOD LUCK!
+
+---
+Of course, all transactions will be visible on the blockchain and so, reallistically, it makes little sense to have a 'gambling' app in which the count or order of transactions plays a part. This practical reality, of the visibility of blockchain transactions, must be taken into consideration when desining dApps. You can consult one of this contract's deployed instances here: https://rinkeby.etherscan.io/address/0x8ae88e50ec2d803f6d59ea15a8f9105be0da2ebc
