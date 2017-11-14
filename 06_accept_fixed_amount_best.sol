@@ -7,10 +7,15 @@ pragma solidity ^0.4.0;
  * See this blog post: https://medium.com/@gavofyork/condition-orientated-programming-969f6ba0161a
  *
  * In COP (a subset of Contract Oriented Programming) transactions should avoid
- * any conditional logic. It is recommended paractice to separate 
+ * conditional logic. It is recommended paractice to separate 
  * state changes from conditional checks.
  *
  * To do that, we can use Solidity's function modifiers.
+ *
+ * Note the underbar character in the modifier ... this is where the 
+ * function code will be inserted. In other words, the modifier
+ * has the capacity to execute code before, after or around the body 
+ * of the main function.
  *
  */
 
