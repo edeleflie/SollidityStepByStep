@@ -7,6 +7,11 @@ pragma solidity ^0.4.0;
  * 1) Creating complex organisations ... distributed app organisations (DAO)
  * 2) enabling upgrades and bug fixes. A contract can be called on to deploy new-subcontracts and transfer 
  * its state to those new subconctracts
+ * See here: https://blog.colony.io/writing-upgradeable-contracts-in-solidity-6743f0eecc88
+ * 3) Allowing different people to 'own' different part sof 
+ *
+ * Often, what can be done with child contracts can also be done (much ore simply) with structs. See here
+ * https://ethereum.stackexchange.com/questions/8615/child-contract-vs-struct?newreg=9940955131d740a1a85cef648b771ef3
  *
  * In this instance, an 'ArtWork' is abstracted as its own contract that stores the artist, work name, and date.
  * 
