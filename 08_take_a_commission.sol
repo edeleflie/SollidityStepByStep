@@ -11,15 +11,16 @@ pragma solidity ^0.4.0;
  *
  */
 
-contract WishingWell {
+contract ArtBank {
 
     address private owner;
 
     // the commision rate .. is a divisor
     // there are no floats in Ethereum (yet, apparently)
     uint commission_divisor = 100; // effectively 1%
+    
 
-    function WishingWell() public {
+    function ArtBank() public {
     	owner = msg.sender;
     }
 

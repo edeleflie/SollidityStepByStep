@@ -7,7 +7,7 @@ pragma solidity ^0.4.0;
  *
  */
 
-contract WishingWell {
+contract ArtBank {
 
     function deposit() payable public returns (uint256){
 

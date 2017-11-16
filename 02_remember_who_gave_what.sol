@@ -7,7 +7,7 @@ pragma solidity ^0.4.0;
  * For example, if you want your contract to behave like a bank,
  * your bank will only have one bottom line ... and how that bottom
  * line should be split up into different accounts would be determined 
- * by some values (just numbers) stored somewhere.
+ * by some values (just numbers) stored in the contract.
  *
  * This is also what 'tokens' are ... they are not a new data type in Ethereum,
  * they are just a bunch of numbers held inside a contract. It would thus be 
@@ -16,12 +16,17 @@ pragma solidity ^0.4.0;
  * The DAO incident (https://en.wikipedia.org/wiki/The_DAO_(organization)), which
  * resulted in the first Ethereum fork, concerned an exploit of a contract dealing with tokens.
  *
- * Note the use of the require() command ... very easy to stop the transaction
- * at any time and for any reason.
+ * Note the use of the require() command ... it is very easy to stop the transaction
+ * at any time and for any reason. The expression contained within the require brackets
+ * simply needs to retrun false.
+ *
+ * When an account is allocated tokens, those tokens dont sit in that account (like Ether).
+ * Intead, the original contract holds those tokens on behalf of the account. So owning a token
+ * is very different to owning Ether.
  *
  */
 
-contract WishingWell {
+contract ArtBank {
     mapping (address => uint) public balances;
 
     function deposit() payable public {

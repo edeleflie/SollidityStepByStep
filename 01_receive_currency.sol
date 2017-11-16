@@ -12,7 +12,7 @@ pragma solidity ^0.4.0;
  *
  * For a contract to accept Ether, it must include at least one payable function.
  * It is also possible to create what is called a 'fallback' function which allows
- * the contract to accpet Ether without strictly defining any specific function.
+ * the contract to accept Ether without specificly defining a named function.
  * 
  * A fallback function looks like this:
  *
@@ -20,7 +20,7 @@ pragma solidity ^0.4.0;
  * 
  */
 
-contract WishingWell {
+contract ArtBank {
 
     function deposit() payable public {
     }

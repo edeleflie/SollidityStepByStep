@@ -9,15 +9,15 @@ pragma solidity ^0.4.0;
  * Event logs are saved within the block chain.
  */
 
-contract WishingWell {
+contract ArtBank {
 
     address private owner;
-    uint commission_divisor = 100; 
+    uint commission_divisor = 100;
 
     // publicise that an amount has been deposited to external listeners
     event LogDepositMade(address accountAddress, uint amount);
 
-    function WishingWell() public {
+    function ArtBank() public {
         owner = msg.sender;
     }
 
