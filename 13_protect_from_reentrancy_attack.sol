@@ -9,7 +9,12 @@ pragma solidity ^0.4.0;
  * because when one contract calls a second, that second contract then holds control
  * of the logic flow. 
  * 
+ * To combat the re-entrancy risk, use the Checks-Effects-Interactions pattern
  * 
+ * CHECKS EFFECTS INTERACTION patterm
+ *
+ * 
+ *
  */
 
 contract Fund {
@@ -18,8 +23,9 @@ contract Fund {
     /// Withdraw your share.
     function withdraw() {
         var share = shares[msg.sender];
-        shares[msg.sender] = 0;
-        msg.sender.transfer(share);
+        require( share > 0 );       // CHECKS
+        shares[msg.sender] = 0;     // EFFECT (on local state variables)
+        msg.sender.transfer(share); // INTERACT (with other contracts)
     }
 }
 
@@ -34,6 +40,6 @@ contract Fund {
     /// Withdraw your share.
     function withdraw() {
         if (msg.sender.send(shares[msg.sender]))
-            shares[msg.sender] = 0;
+            shares[msg.sender] = 0;    // LOCAL STATE IS MODIFIED *AFTER* INTERACTION HAS OCCURRED
     }
 }
