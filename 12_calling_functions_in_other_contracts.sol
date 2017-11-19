@@ -4,7 +4,7 @@ pragma solidity ^0.4.0;
  * Contracts can call functions on other contracts. This allows complex orgnisations of contracts,
  * transasctions and behaviours.
  * 
- * Here, the ArtBank contract changes the 'Present Owner' of an artwork in the ArtBank
+ * Here, the ArtBank contract changes the 'Current Owner' of an artwork in the ArtBank
  *
  * 
  * 
