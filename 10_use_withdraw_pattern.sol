@@ -19,7 +19,7 @@ contract ArtBank {
 
     address private owner;
 
-    uint commission_divisor = 100; 
+    uint commission_divisor = 10; 
     // this variable remembers how much Ether has gone to commissions
     uint private commission_funds; 
 
