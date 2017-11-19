@@ -12,6 +12,9 @@ pragma solidity ^0.4.0;
  * 
  * The withdraw pattern uses a little more code overhead, since we have to remember
  * how much Ether is allowed to be withdrawn by the concerned account.
+ *
+ * See this page for more information about the withdraw pattern:
+ * http://solidity.readthedocs.io/en/develop/common-patterns.html
  * 
  */
 
@@ -40,8 +43,8 @@ contract ArtBank {
     // indeed the creator of this account.
     function withdrawCommission() public {
     	require( msg.sender == owner);
+        commission_funds = 0;               // register trasnferred funds as 0 (MUST DO THIS BEFORE THE NEXT LINE)
     	owner.transfer(commission_funds);   // transfer money
-        commission_funds = 0;               // register trasnferred funds as 0
     }
 
 }
